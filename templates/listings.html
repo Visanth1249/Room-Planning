@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="/add-listing/" class="inline-block px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 mb-4">Create a New Listing</a>
+
+{% for listing in listings %}
+
+<div class="mt-8 px-4 py-4 bg-gray-800 rounded-md shadow-md text-white">
+    <h3 class="text-2xl font-semibold">{{ listing.title }}</h3>
+    <img src="{{listing.image.url}}" alt="{{ listing.title }}" class="mt-4 rounded-md shadow-md">
+    <a href="/listings/{{ listing.id }}/" class="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600">
+        View Details
+    </a>
+</div>
+
+{% endfor %}
+
+{% endblock %}
